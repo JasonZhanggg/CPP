@@ -1,3 +1,11 @@
+/*
+Name: Jason Zhang
+Date: 9/27/2019
+Class: C++
+Period: 4
+This program checks if a number or sentence is a palindrme.
+ */
+
 #include <iostream>
 #include <cstring>
 using namespace std;
@@ -5,6 +13,7 @@ int main(){
   //char array for input
   char input[80];
   char newInput[80];
+  cout<<"Input"<<endl;
   //take in char array and include spaces
   cin.getline(input, sizeof(input));
   //loop through the input array

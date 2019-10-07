@@ -28,19 +28,19 @@ void printBoard(char board[3][3]){
 bool checkWin(char player, char board[3][3]){
   for(int i = 0; i<3;i++){
     //check if there are 3 colums in a row
-    if(board[i][0] == player && board[i][1] == player && board[i][2]){
+    if(board[i][0] == player && board[i][1] == player && board[i][2] == player){
       return true;
     }
     //check if there are 3 rows in a row
-    if(board[0][i] == player && board[1][i] == player && board[2][i]){
+    if(board[0][i] == player && board[1][i] == player && board[2][i] == player){
       return true;
     }
   }
   //check for diaganals
-  if(board[0][0] == player && board[1][1] == player && board[2][2]){
+  if(board[0][0] == player && board[1][1] == player && board[2][2] == player){
     return true;
   }
-  if(board[0][2] == player && board[1][1] == player && board[2][0]){
+  if(board[0][2] == player && board[1][1] == player && board[2][0] == player){
     return true;
   }
   return false;
@@ -83,10 +83,10 @@ int main(){
   int xwins = 0;
   int owins = 0;
   //current player
-  char player = 'X';
   while(true){
     //reset the board
     char board[3][3] = {' '};
+    char player = 'X';
     while(true){
       //print the board
       printBoard(board);
@@ -116,6 +116,8 @@ int main(){
     }
     char playAgain [80];
     printBoard(board);
+    cout<<"X wins: "<<xwins<<endl;
+    cout<<"O wins: "<<owins<<endl;
     do{
       //ask if they want to play again
       cout<<"Would you like to play again? (y/n)"<<endl;

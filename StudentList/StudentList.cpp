@@ -9,19 +9,21 @@ struct student{
   float gpa;
 };
 void add(vector<student*>*sVec);
-
+void deleteStudent(vector<student*>*sVec);
+void printVec(vector<student*>*sVec);
 int main(){
   vector<student*>*sVec = new vector<student*>;
-  char input[80];
-  cout<<"Input"<<endl;
-  cin.getline(input, sizeof(input));
-  if(strcmp(input, "ADD") == 0){
-    add(sVec);
+  while(true){
+    char input[80];
+    cout<<"Input"<<endl;
+    cin.getline(input, sizeof(input));
+    if(strcmp(input, "ADD") == 0){
+      add(sVec);
+    }
+    else if(strcmp(input, "PRINT") == 0){
+      printVec(sVec);
+    }
   }
-  cout<<sVec->at(0)->firstName<<endl;
-  cout<<sVec->at(0)->lastName<<endl;
-  cout<<sVec->at(0)->id<<endl;
-  cout<<sVec->at(0)->gpa<<endl;
 }
 void add(vector<student*>*sVec){
   sVec->push_back(new student());
@@ -34,4 +36,23 @@ void add(vector<student*>*sVec){
   cout<<"What is the student's gpa?"<<endl;
   cin>>sVec->at(sVec->size()-1)->gpa;
 }
+void deleteStudent(vector<student*>*sVec){
+  int newId;
+  cout<<"What is the studenst's Id?"<<endl;
+  cin>>newId;
+  vector<student*>::iterator i;
+  for(i = sVec->begin(); i!=sVec->end();i++){
+    if(newId == (*i)->id){
+      delete *i;
+      sVec->erase(i);
+      return;
+    }
+  }
+}
   
+void printVec(vector<student*>*sVec){
+  vector<student*>::iterator i;
+  for(i=sVec->begin();i!=sVec->end();i++){
+    cout<<(*i)->firstName<<" "<<(*i)->lastName<<", "<<(*i)->id<<", "<<(*i)->gpa<<endl;
+  }
+}

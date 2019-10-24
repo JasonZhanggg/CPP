@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cstring>
+#include <math.h>
 using namespace std;
 struct student{
   char firstName[80];
@@ -15,13 +16,27 @@ int main(){
   vector<student*>*sVec = new vector<student*>;
   while(true){
     char input[80];
-    cout<<"Input"<<endl;
+    cout<<"Input ADD to add a student, PRINT to print the students, DELETE to delete a student, and QUIT to exit the program."<<endl;
     cin.getline(input, sizeof(input));
+    for(int i = 0; i<sizeof(input); i++){
+      input[i] = toupper(input[i])
+    }
     if(strcmp(input, "ADD") == 0){
       add(sVec);
+      cin.ignore(1000, '\n');
     }
     else if(strcmp(input, "PRINT") == 0){
       printVec(sVec);
+      cin.ignore(1000, '\n');
+    }
+    else if(strcmp(input, "DELETE") == 0){
+      deleteStudent(sVec);
+    }
+    else if(strcmp(input, "QUIT") == 0){
+      return 0;
+    }
+    else{
+      cout<<"Please ";
     }
   }
 }
@@ -42,7 +57,7 @@ void deleteStudent(vector<student*>*sVec){
   cin>>newId;
   vector<student*>::iterator i;
   for(i = sVec->begin(); i!=sVec->end();i++){
-    if(newId == (*i)->id)){
+    if(newId == (*i)->id){
       delete *i;
       sVec->erase(i);
       return;
@@ -53,6 +68,6 @@ void deleteStudent(vector<student*>*sVec){
 void printVec(vector<student*>*sVec){
   vector<student*>::iterator i;
   for(i=sVec->begin();i!=sVec->end();i++){
-    cout<<(*i)->firstName<<" "<<(*i)->lastName<<", "<<(*i)->id<<", "<<(*i)->gpa<<endl;
+    cout<<(*i)->firstName<<" "<<(*i)->lastName<<", "<<(*i)->id<<", "<<((float)((int)(((*i)->gpa)*100)))/100<<endl;
   }
 }

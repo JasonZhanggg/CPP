@@ -1,22 +1,31 @@
 /*
 Jason Zhang
-10/13/2019
+11/13/2019
 */
 #include <iostream>
 #include <cstring>
 #include "Media.h"
 using namespace std;
 
-class VideoGame :public Media	{
+class Music :public Media {
  public:
   //all the functions
-  VideoGame(char*, int, char*, int);
+  Music(char*, int, char*, float, char*);
+  char* getArtist();
   char* getPublisher();
-  int getRating();
+  float getDuration();
   int getType();
-  ~VideoGame();
+  ~Music();
  private:
   //all the variables
+  char* artist;
+  float duration;
   char* publisher;
-  int rating;
 };
+
+
+
+
+
+
+

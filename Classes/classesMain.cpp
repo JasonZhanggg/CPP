@@ -85,7 +85,7 @@ void add(vector <Media*>* vect){
     cout<<"What is the game's rating?(Integer)"<<endl;
     cin>>rating;
     vect->push_back(new VideoGame(title, year, publisher, rating));
-    cout<<"Aded a videogame"<<endl;
+    cout<<"Added a videogame"<<endl;
   }
   //add a song
   else if(strcmp(input, "music") == 0){
@@ -102,7 +102,7 @@ void add(vector <Media*>* vect){
     cin.ignore(999, '\n');
     cin>>duration;
     vect->push_back(new Music(title, year, publisher, duration, artist));
-    cout<<"Aded a song"<<endl;
+    cout<<"Added a song"<<endl;
   }
   //add a movie
   else if(strcmp(input, "movie") == 0){
@@ -117,7 +117,7 @@ void add(vector <Media*>* vect){
     cout<<"What is the movie's rating?(Integer)"<<endl;
     cin>>rating;
     vect->push_back(new Movies(title, year, director, rating, duration));
-    cout<<"Aded a movie"<<endl;
+    cout<<"Added a movie"<<endl;
   }
     
   cin.ignore(999, '\n');

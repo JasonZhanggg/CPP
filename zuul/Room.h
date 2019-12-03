@@ -1,3 +1,9 @@
+/*
+Jason Zhang
+Zuul
+12/2/2019
+*/
+
 #ifndef ROOM_H
 #define ROOM_H
 
@@ -10,6 +16,7 @@ using namespace std;
 class Room
 {
  public:
+  //declare all of the methods
   Room(char*, char*);
   vector<Item*>* getItems();
   char* getDescription();
@@ -19,6 +26,7 @@ class Room
   void addExit(char*, Room*);
   map<char*, Room*>* getExits();
  private:
+  //declare all of the variables
   vector<Item*>* items;
   char* description;
   map<char*, Room*>* exits;

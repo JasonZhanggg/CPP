@@ -31,9 +31,11 @@ char* Room:: getName(){
 void Room::removeItem(Item* item){
   vector<Item*>::iterator i;
   for(i=items->begin(); i!= items->end();i++){
-    delete *i;
-    i = items->erase(i);
-    return;
+    if(strcmp((*i)->getName(), item->getName()) == 0){
+      delete *i;
+      i = items->erase(i);
+      return;
+    }
   }
 }
 void Room::addExit(char* dir, Room* room){

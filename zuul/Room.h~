@@ -10,12 +10,13 @@ using namespace std;
 class Room
 {
  public:
-  Room(vector<Item*>*, char*, char*);
+  Room(char*, char*);
   vector<Item*>* getItems();
   char* getDescription();
   char* getName();
   void removeItem(Item*);
   void addItem(Item*);
+  void addExit(char*, Room*);
   map<char*, Room*>* getExits();
  private:
   vector<Item*>* items;

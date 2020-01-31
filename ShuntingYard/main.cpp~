@@ -1,0 +1,13 @@
+#include <iostream>
+#include <cstring>
+#include "Node.h"
+#include "List.h"
+
+using namespace std;
+
+int main(){
+  List* list = new List("5");
+  list->push("+");
+  cout<<list->s_peek()->getVal()<<endl;
+  return 0;
+}
